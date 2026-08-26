@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+  GlideMD design tokens
+  Concept: the moment a glider catches a thermal at dawn — deep indigo sky,
+  a horizon of dusty clay and warm gold. Used as a literal "glide path" motif
+  (see GlideArc component) rather than a decorative gradient.
+*/
+:root {
+  --color-ink: #1b2b3a;      /* deep indigo-navy — primary text, dark sections */
+  --color-mist: #f5f6f3;     /* misty off-white — page background */
+  --color-surface: #ffffff;  /* card / panel surface */
+  --color-clay: #c97b6b;     /* dusty clay — warm secondary accent */
+  --color-gold: #d9a441;     /* warm gold — primary CTA accent */
+  --color-sage: #4f7c74;     /* muted sage-teal — clinical trust accent */
+  --color-border: #e3e2dc;
+
+  --font-display: var(--font-newsreader);
+  --font-body: var(--font-manrope);
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-mist: var(--color-mist);
+  --color-surface: var(--color-surface);
+  --color-clay: var(--color-clay);
+  --color-gold: var(--color-gold);
+  --color-sage: var(--color-sage);
+  --color-border: var(--color-border);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-body), sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), serif;
+}
+
+/* Respect reduced-motion preference for the glide-path animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
