@@ -43,14 +43,13 @@ export const ALL_STATES: { code: StateCode; name: string }[] = [
 ];
 
 /**
- * PLACEHOLDER — replace with the states where your professional
- * corporation actually holds active clinician licenses. Launching with a
- * state listed here that you can't legally serve is an unlicensed-practice
- * problem, not a marketing problem.
+ * States where the professional corporation's clinicians hold active
+ * licenses. Currently all 50 states + DC. Update this set if licensure
+ * coverage changes.
  */
-export const SERVICEABLE_STATES: Set<StateCode> = new Set([
-  // e.g. "FL", "TX", "AZ", "CO",
-]);
+export const SERVICEABLE_STATES: Set<StateCode> = new Set(
+  ALL_STATES.map((state) => state.code)
+);
 
 export function isServiceable(code: StateCode): boolean {
   return SERVICEABLE_STATES.has(code);
